@@ -1,0 +1,16 @@
+{
+    "name": "backend",
+    "main": "app.ts",
+    "type": "module",
+    "scripts": {
+        "dev": "tsx watch --conditions=typescript ./app.ts",
+        "prod": "tsx app.ts"
+    },
+    "dependencies": {
+        "dotenv": "^16.4.5",
+        "express": "^4.21.1",
+        "ts-node": "^10.9.2",
+        "tsx": "^4.19.2",
+        "typescript": "^5.6.3"
+    }
+}

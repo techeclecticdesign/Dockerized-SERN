@@ -1,35 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+      <h1>Dockerized SERN Stack</h1>
+      <p>
+        A simple SERN stack application using Docker. SERN stands for
+        <strong> S</strong>QL <strong>E</strong>xpress <strong>R</strong>eact
+        <strong> N</strong>ode. This application is boilerplate to build web
+        applications using the SERN stack using dockerized containers for both
+        production and development environments.
+      </p>
+      <p>
+        Nginx is used as a reverse proxy to route requests to the appropriate
+        container. When in development mode, nginx forwards connections from the
+        development server to port 80. When in build mode, nginx serves the
+        files in the ./frontend/dist directory.
       </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
