@@ -1,0 +1,8 @@
+{
+    "name": "dockerized",
+    "version": "0.0.0",
+    "scripts": {
+        "prod": "TARGET_STAGE=prod docker-compose up --build",
+        "dev": "TARGET_STAGE=dev docker-compose up --build"
+      }
+    }
