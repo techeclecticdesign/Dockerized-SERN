@@ -19,6 +19,9 @@ services:
       - "3000:3000"
     depends_on:
       - db
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
 
   frontend:
     build:
@@ -27,11 +30,23 @@ services:
       target: ${TARGET_STAGE:-dev}
     ports:
       - "5173:5173"
-    depends_on:
-      - backend
     volumes:
       - ./frontend:/app
+      - frontend-dist:/app/dist
       - /app/node_modules
+
+  nginx:
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+      target: ${TARGET_STAGE:-dev}
+    ports:
+      - "80:80"
+    depends_on:
+      - frontend
+    volumes:
+      - frontend-dist:/usr/share/nginx/html
 
 volumes:
   pgdata:
+  frontend-dist:
